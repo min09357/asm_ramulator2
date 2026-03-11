@@ -27,10 +27,14 @@ class DDR5 : public IDRAM, public Implementation {
     };
 
     inline static const std::map<std::string, std::vector<int>> timing_presets = {
+      //   refresh parameters'(nRFC, nREFSBRD, ...) unit is actually not nCK, but ns)
       //   name         rate   nBL  nCL nRCD   nRP  nRAS   nRC   nWR  nRTP nCWL nPPD nCCDS nCCDS_WR nCCDS_WTR nCCDL nCCDL_WR nCCDL_WTR nRRDS nRRDL nFAW nRFC1 nRFC2 nRFCsb nREFI nREFSBRD nRFM1 nRFM2 nRFMsb nDRFMab nDRFMsb nCS, tCK_ps
       {"DDR5_3200AN",  {3200,   8,  24,  24,   24,   52,   75,   48,   12,  22,  2,    8,     8,     22+8+4,    8,     16,    22+8+16,   8,   -1,   -1,  -1,   -1,   -1,    -1,     30,    -1,   -1,   -1,     -1,     -1,    2,   625}},
       {"DDR5_3200BN",  {3200,   8,  26,  26,   26,   52,   77,   48,   12,  24,  2,    8,     8,     24+8+4,    8,     16,    24+8+16,   8,   -1,   -1,  -1,   -1,   -1,    -1,     30,    -1,   -1,   -1,     -1,     -1,    2,   625}},
       {"DDR5_3200C",   {3200,   8,  28,  28,   28,   52,   79,   48,   12,  26,  2,    8,     8,     26+8+4,    8,     16,    26+8+16,   8,   -1,   -1,  -1,   -1,   -1,    -1,     30,    -1,   -1,   -1,     -1,     -1,    2,   625}},
+      
+      {"DDR5_4800B",   {4800,   8,  40,  39,   39,   77,  116,   72,   18,  38,  2,    8,     8,     38+8+6,   12,     52,    38+8+24,   8,   -1,   -1,  -1,   -1,   -1,    -1,     30,    -1,   -1,   -1,     -1,     -1,    2,   417}},    
+      {"DDR5_5600B",   {5600,   8,  46,  45,   45,   90,  135,   84,   21,  44,  2,    8,     8,     44+8+7,   14,     59,    44+8+28,   8,   -1,   -1,  -1,   -1,   -1,    -1,     30,    -1,   -1,   -1,     -1,     -1,    2,   357}},    
     };
 
     inline static const std::map<std::string, std::vector<double>> voltage_presets = {
@@ -410,16 +414,16 @@ class DDR5 : public IDRAM, public Implementation {
       }(m_timing_vals("rate"));
 
       constexpr int nRRDL_TABLE[3][1] = {
-      // 3200  
-        { 5, },  // x4
-        { 5, },  // x8
-        { 5, },  // x16
+      // 3200  4800  5600  
+        { 5,    5,    5, },  // x4
+        { 5,    5,    5, },  // x8
+        { 5,    5,    5, },  // x16
       };
       constexpr int nFAW_TABLE[3][1] = {
-      // 3200  
-        { 40, },  // x4
-        { 32, },  // x8
-        { 32, },  // x16
+      // 3200  4800  5600   
+        { 32,   32,   32, },  // x4
+        { 32,   32,   32, },  // x8
+        { 40,   40,   40, },  // x16
       };
 
       if (dq_id != -1 && rate_id != -1) {
