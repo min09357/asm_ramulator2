@@ -22,6 +22,8 @@ class ReadWriteTrace : public IFrontEnd, public Implementation {
     size_t m_trace_length = 0;
     size_t m_curr_trace_idx = 0;
 
+    size_t m_trace_count = 0;
+
     Logger_t m_logger;
 
   public:
@@ -38,8 +40,11 @@ class ReadWriteTrace : public IFrontEnd, public Implementation {
 
     void tick() override {
       const Trace& t = m_trace[m_curr_trace_idx];
-      m_memory_system->send({t.addr_vec, t.is_write ? Request::Type::Write : Request::Type::Read});
-      m_curr_trace_idx = (m_curr_trace_idx + 1) % m_trace_length;
+      bool request_sent = m_memory_system->send({t.addr_vec, t.is_write ? Request::Type::Write : Request::Type::Read});
+      if (request_sent) {
+        m_curr_trace_idx = (m_curr_trace_idx + 1) % m_trace_length;
+        m_trace_count++;
+      }
     };
 
 
@@ -92,7 +97,7 @@ class ReadWriteTrace : public IFrontEnd, public Implementation {
 
     // TODO: FIXME
     bool is_finished() override {
-      return true; 
+      return m_trace_count >= m_trace_length; 
     };    
 };
 
