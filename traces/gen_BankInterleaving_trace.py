@@ -10,10 +10,10 @@ from pathlib import Path
 # FILE_NAME = "DDR5_5600B_2R_Rowhit.trace"
 
 # FILE_NAME = "DDR4_2933Y_1R_Rowmiss.trace"
-# FILE_NAME = "DDR4_2933Y_2R_Rowmiss.trace"
+FILE_NAME = "DDR4_2933Y_2R_Rowmiss.trace"
 # FILE_NAME = "DDR5_4800B_1R_Rowmiss.trace"
 # FILE_NAME = "DDR5_4800B_2R_Rowmiss.trace"
-FILE_NAME = "DDR5_5600B_1R_Rowmiss.trace"
+# FILE_NAME = "DDR5_5600B_1R_Rowmiss.trace"
 # FILE_NAME = "DDR5_5600B_2R_Rowmiss.trace"
 
 REQUEST_TYPE = "R"
@@ -36,10 +36,10 @@ ADDRESS_ORDER = [CH, RA, BG, BA, RO, CO]
 # Organization size per address level.
 LEVEL_COUNTS = {
     # CH: 1, RA: 1, BG: 4, BA: 4, RO: 1 << 9, CO: 1 << 7, # DDR4_2933Y_1R
-    # CH: 1, RA: 2, BG: 4, BA: 4, RO: 1 << 9, CO: 1 << 7, # DDR4_2933Y_2R
+    CH: 1, RA: 2, BG: 4, BA: 4, RO: 1 << 9, CO: 1 << 7, # DDR4_2933Y_2R
     # CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7, # DDR5_4800B_1R
     # CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7, # DDR5_4800B_2R
-    CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6, # DDR5_5600B_1R
+    # CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6, # DDR5_5600B_1R
     # CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6, # DDR5_5600B_2R
 
 }
