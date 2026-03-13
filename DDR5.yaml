@@ -1,0 +1,32 @@
+Frontend:
+  impl: ReadWriteTrace
+  path: example_rw.trace
+  clock_ratio: 1
+
+MemorySystem:
+  impl: GenericDRAM
+  clock_ratio: 1
+
+  DRAM:
+    impl: DDR5
+    org:
+      preset: DDR5_16Gb_x4
+      channel: 1
+      rank: 2
+    timing:
+      preset: DDR5_4800B
+    RFM:
+      BRC: 2
+
+  Controller:
+    impl: Generic
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedRowPolicy
+    plugins:
+
+  AddrMapper:
+    impl: ChRaBaRoCo
