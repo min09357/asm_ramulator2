@@ -20,6 +20,9 @@ class GenericDRAMSystem final : public IMemorySystem, public Implementation {
     int s_num_write_requests = 0;
     int s_num_other_requests = 0;
 
+    float s_theoretical_bandwidth = 0.0f;
+    float s_measured_bandwidth = 0.0f;
+    float s_bandwidth_utilization = 0.0f;
 
   public:
     void init() override { 
@@ -43,6 +46,10 @@ class GenericDRAMSystem final : public IMemorySystem, public Implementation {
       register_stat(s_num_read_requests).name("total_num_read_requests");
       register_stat(s_num_write_requests).name("total_num_write_requests");
       register_stat(s_num_other_requests).name("total_num_other_requests");
+
+      register_stat(s_theoretical_bandwidth).name("theoretical_bandwidth (GBs)");
+      register_stat(s_measured_bandwidth).name("measured_bandwidth (GBs)");
+      register_stat(s_bandwidth_utilization).name("bandwidth_utilization (%)");
     };
 
     void setup(IFrontEnd* frontend, IMemorySystem* memory_system) override { }
@@ -87,6 +94,28 @@ class GenericDRAMSystem final : public IMemorySystem, public Implementation {
     // const SpecDef& get_supported_requests() override {
     //   return m_dram->m_requests;
     // };
+
+    void finalize() override {
+      float tCK_ns        = get_tCK();
+      float tCK_ps        = tCK_ns * 1000.0f;
+      int   channel_width = m_dram->m_channel_width;
+      int   BL            = m_dram->m_timing_vals("nBL") * 2;
+
+      // Peak theoretical bandwidth: DDR = 2 transfers/clock
+      float data_rate_MTps      = 2.0f * 1e6f / tCK_ps;
+      s_theoretical_bandwidth = data_rate_MTps * (channel_width / 8.0f) / 1000.0f;
+
+      // Measured bandwidth: bytes/ns == GB/s
+      double total_bytes        = (double)(s_num_read_requests + s_num_write_requests)
+                                  * BL * (channel_width / 8.0);
+      double total_time_ns      = (double)m_clk * tCK_ns;
+      s_measured_bandwidth = (float)(total_bytes / total_time_ns);
+
+      // Utilization
+      s_bandwidth_utilization = (s_measured_bandwidth / s_theoretical_bandwidth) * 100.0f;
+
+      IMemorySystem::finalize();
+    }
 };
   
 }   // namespace 
