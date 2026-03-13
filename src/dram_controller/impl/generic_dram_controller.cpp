@@ -113,20 +113,20 @@ class GenericDRAMController final : public IDRAMController, public Implementatio
     bool send(Request& req) override {
       req.final_command = m_dram->m_request_translations(req.type_id);
 
-      switch (req.type_id) {
-        case Request::Type::Read: {
-          s_num_read_reqs++;
-          break;
-        }
-        case Request::Type::Write: {
-          s_num_write_reqs++;
-          break;
-        }
-        default: {
-          s_num_other_reqs++;
-          break;
-        }
-      }
+      // switch (req.type_id) {
+      //   case Request::Type::Read: {
+      //     s_num_read_reqs++;
+      //     break;
+      //   }
+      //   case Request::Type::Write: {
+      //     s_num_write_reqs++;
+      //     break;
+      //   }
+      //   default: {
+      //     s_num_other_reqs++;
+      //     break;
+      //   }
+      // }
 
       // Forward existing write requests to incoming read requests
       if (req.type_id == Request::Type::Read) {
@@ -137,6 +137,7 @@ class GenericDRAMController final : public IDRAMController, public Implementatio
           // The request will depart at the next cycle
           req.depart = m_clk + 1;
           pending.push_back(req);
+          s_num_read_reqs++;
           return true;
         }
       }
@@ -155,6 +156,21 @@ class GenericDRAMController final : public IDRAMController, public Implementatio
         // We could not enqueue the request
         req.arrive = -1;
         return false;
+      }
+
+      switch (req.type_id) {
+        case Request::Type::Read: {
+          s_num_read_reqs++;
+          break;
+        }
+        case Request::Type::Write: {
+          s_num_write_reqs++;
+          break;
+        }
+        default: {
+          s_num_other_reqs++;
+          break;
+        }
       }
 
       return true;

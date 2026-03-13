@@ -89,4 +89,3 @@ class BHDRAMSystem final : public IBHMemorySystem, public Implementation {
 };
   
 }   // namespace 
-

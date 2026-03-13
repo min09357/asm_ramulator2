@@ -51,7 +51,7 @@ class ClosedRowPolicy : public IRowPolicy, public Implementation {
       m_ctrl = cast_parent<IDRAMController>();
       m_dram = m_ctrl->m_dram;
 
-      m_cap = param<int>("cap").default_val(10000000); // TODO
+      m_cap = param<int>("cap").default_val(1); // Strict Closed-Row Policy by default (close after every access)
 
       m_rank_level = m_dram->m_levels("rank");
       m_bankgroup_level = m_dram->m_levels("bankgroup");
