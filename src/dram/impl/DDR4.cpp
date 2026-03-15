@@ -519,6 +519,9 @@ class DDR4 : public IDRAM, public Implementation {
       m_preqs[m_levels["bank"]][m_commands["WR"]] = Lambdas::Preq::Bank::RequireRowOpen<DDR4>;
       m_preqs[m_levels["bank"]][m_commands["ACT"]] = Lambdas::Preq::Bank::RequireRowOpen<DDR4>;
       m_preqs[m_levels["bank"]][m_commands["PRE"]] = Lambdas::Preq::Bank::RequireBankClosed<DDR4>;
+
+      m_preqs[m_levels["bank"]][m_commands["RDA"]] = Lambdas::Preq::Bank::RequireRowOpen<DDR4>;
+      m_preqs[m_levels["bank"]][m_commands["WRA"]] = Lambdas::Preq::Bank::RequireRowOpen<DDR4>;
     };
 
     void set_rowhits() {
@@ -526,6 +529,9 @@ class DDR4 : public IDRAM, public Implementation {
 
       m_rowhits[m_levels["bank"]][m_commands["RD"]] = Lambdas::RowHit::Bank::RDWR<DDR4>;
       m_rowhits[m_levels["bank"]][m_commands["WR"]] = Lambdas::RowHit::Bank::RDWR<DDR4>;
+
+      m_rowhits[m_levels["bank"]][m_commands["RDA"]] = Lambdas::RowHit::Bank::RDWR<DDR4>;
+      m_rowhits[m_levels["bank"]][m_commands["WRA"]] = Lambdas::RowHit::Bank::RDWR<DDR4>;
     }
 
 
@@ -534,6 +540,9 @@ class DDR4 : public IDRAM, public Implementation {
 
       m_rowopens[m_levels["bank"]][m_commands["RD"]] = Lambdas::RowOpen::Bank::RDWR<DDR4>;
       m_rowopens[m_levels["bank"]][m_commands["WR"]] = Lambdas::RowOpen::Bank::RDWR<DDR4>;
+
+      m_rowopens[m_levels["bank"]][m_commands["RDA"]] = Lambdas::RowOpen::Bank::RDWR<DDR4>;
+      m_rowopens[m_levels["bank"]][m_commands["WRA"]] = Lambdas::RowOpen::Bank::RDWR<DDR4>;
     }
 
     void set_powers() {

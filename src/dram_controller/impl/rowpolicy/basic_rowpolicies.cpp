@@ -118,4 +118,45 @@ class ClosedRowPolicy : public IRowPolicy, public Implementation {
     };
 };
 
+
+class ClosedWithAutoPrecharge : public IRowPolicy, public Implementation {
+  RAMULATOR_REGISTER_IMPLEMENTATION(IRowPolicy, ClosedWithAutoPrecharge,
+      "ClosedWithAutoPrecharge",
+      "Closed Row Policy with Auto-Precharge (RDA/WRA).")
+  private:
+    IDRAM* m_dram;
+
+    int m_RD_id  = -1;   // m_dram->m_commands("RD")
+    int m_WR_id  = -1;   // m_dram->m_commands("WR")
+    int m_RDA_id = -1;   // m_dram->m_commands("RDA")
+    int m_WRA_id = -1;   // m_dram->m_commands("WRA")
+
+  public:
+    void init() override { }
+
+    void setup(IFrontEnd* frontend, IMemorySystem* memory_system) override {
+      m_ctrl = cast_parent<IDRAMController>();
+      m_dram = m_ctrl->m_dram;
+
+      m_RD_id  = m_dram->m_commands("RD");
+      m_WR_id  = m_dram->m_commands("WR");
+      m_RDA_id = m_dram->m_commands("RDA");
+      m_WRA_id = m_dram->m_commands("WRA");
+    }
+
+    void update(bool request_found, ReqBuffer::iterator& req_it) override {
+      if (!request_found)
+        return;
+
+      if (req_it->command == m_RD_id) {
+        req_it->command = m_RDA_id;
+        req_it->final_command = m_RDA_id;
+      } else if (req_it->command == m_WR_id) {
+        req_it->command = m_WRA_id;
+        req_it->final_command = m_WRA_id;
+      }
+    }
+};
+
+
 }       // namespace Ramulator
