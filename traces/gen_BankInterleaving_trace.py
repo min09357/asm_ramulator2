@@ -3,17 +3,22 @@ from pathlib import Path
 
 
 # FILE_NAME = "DDR4_2933Y_1R_Rowhit.trace"
-FILE_NAME = "DDR4_2933Y_2R_Rowhit.trace"
-# FILE_NAME = "DDR5_4800B_1R_Rowhit.trace"
-# FILE_NAME = "DDR5_4800B_2R_Rowhit.trace"
-# FILE_NAME = "DDR5_5600B_1R_Rowhit.trace"
-# FILE_NAME = "DDR5_5600B_2R_Rowhit.trace"
-
 # FILE_NAME = "DDR4_2933Y_1R_Rowmiss.trace"
+
+FILE_NAME = "DDR4_2933Y_2R_Rowhit.trace"
 # FILE_NAME = "DDR4_2933Y_2R_Rowmiss.trace"
+
+
+# FILE_NAME = "DDR5_4800B_1R_Rowhit.trace"
 # FILE_NAME = "DDR5_4800B_1R_Rowmiss.trace"
+
+# FILE_NAME = "DDR5_4800B_2R_Rowhit.trace"
 # FILE_NAME = "DDR5_4800B_2R_Rowmiss.trace"
+
+# FILE_NAME = "DDR5_5600B_1R_Rowhit.trace"
 # FILE_NAME = "DDR5_5600B_1R_Rowmiss.trace"
+
+# FILE_NAME = "DDR5_5600B_2R_Rowhit.trace"
 # FILE_NAME = "DDR5_5600B_2R_Rowmiss.trace"
 
 REQUEST_TYPE = "R"
@@ -45,10 +50,14 @@ LEVEL_COUNTS = {
 }
 
 # Fastest-changing to slowest-changing order.
-# INTERLEAVING_SEQUENCE = [CH, RA, BG, BA, CO, RO]    # Row hit
-# INTERLEAVING_SEQUENCE = [CH, BG, RA, BA, CO, RO]    # Row hit
-INTERLEAVING_SEQUENCE = [CH, BG, BA, RA, CO, RO]    # Row hit
-# INTERLEAVING_SEQUENCE = [CH, BG, RA, BA, RO, CO]    # Row miss
+# INTERLEAVING_SEQUENCE = [CH, RA, BG, BA, CO, RO]    # Row hit rank first
+# INTERLEAVING_SEQUENCE = [CH, RA, BG, BA, RO, CO]    # Row miss rank first
+
+# INTERLEAVING_SEQUENCE = [CH, BG, RA, BA, CO, RO]    # Row hit bank group first
+# INTERLEAVING_SEQUENCE = [CH, BG, RA, BA, RO, CO]    # Row miss bank group first
+
+INTERLEAVING_SEQUENCE = [CH, BG, BA, RA, CO, RO]    # Row hit rank last
+# INTERLEAVING_SEQUENCE = [CH, BG, BA, RA, RO, CO]    # Row miss rank last
 
 
 def validate_configuration():

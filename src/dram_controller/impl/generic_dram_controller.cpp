@@ -55,6 +55,21 @@ class GenericDRAMController final : public IDRAMController, public Implementatio
       m_wr_low_watermark =  param<float>("wr_low_watermark").desc("Threshold for switching back to read mode.").default_val(0.2f);
       m_wr_high_watermark = param<float>("wr_high_watermark").desc("Threshold for switching to write mode.").default_val(0.8f);
 
+      int active_buffer_size = param<int>("active_buffer_size").desc("Maximum number of entries in the active buffer.").default_val(32);
+      int priority_buffer_size = param<int>("priority_buffer_size").desc("Maximum number of entries in the priority buffer.").default_val(512*3 + 32);
+      int read_buffer_size = param<int>("read_buffer_size").desc("Maximum number of entries in the read buffer.").default_val(32);
+      int write_buffer_size = param<int>("write_buffer_size").desc("Maximum number of entries in the write buffer.").default_val(32);
+
+      if (active_buffer_size <= 0 || priority_buffer_size <= 0 ||
+          read_buffer_size <= 0 || write_buffer_size <= 0) {
+        throw ConfigurationError("Buffer sizes must be greater than 0.");
+      }
+
+      m_active_buffer.max_size = static_cast<size_t>(active_buffer_size);
+      m_priority_buffer.max_size = static_cast<size_t>(priority_buffer_size);
+      m_read_buffer.max_size = static_cast<size_t>(read_buffer_size);
+      m_write_buffer.max_size = static_cast<size_t>(write_buffer_size);
+
       m_scheduler = create_child_ifce<IScheduler>();
       m_refresh = create_child_ifce<IRefreshManager>();    
       m_rowpolicy = create_child_ifce<IRowPolicy>();    
@@ -70,7 +85,7 @@ class GenericDRAMController final : public IDRAMController, public Implementatio
     void setup(IFrontEnd* frontend, IMemorySystem* memory_system) override {
       m_dram = memory_system->get_ifce<IDRAM>();
       m_bank_addr_idx = m_dram->m_levels("bank");
-      m_priority_buffer.max_size = 512*3 + 32;
+      // m_priority_buffer.max_size = 512*3 + 32;
 
       m_num_cores = frontend->get_num_cores();
 

@@ -4,6 +4,8 @@
 ./ramulator2 -f DDR4.yaml -p Frontend.path=traces/DDR4_2933Y_1R_Rowhit.trace -p MemorySystem.Controller.RowPolicy.impl=OpenRowPolicy
 ./ramulator2 -f DDR4.yaml -p Frontend.path=traces/DDR4_2933Y_1R_Rowmiss.trace -p MemorySystem.Controller.RowPolicy.impl=OpenRowPolicy
 ./ramulator2 -f DDR4.yaml -p Frontend.path=traces/DDR4_2933Y_1R_Rowmiss.trace -p MemorySystem.Controller.RowPolicy.impl=OpenRowPolicy -p MemorySystem.DRAM.timing.nRP=29 -p MemorySystem.DRAM.timing.nRC=76
+./ramulator2 -f DDR4.yaml -p Frontend.path=traces/DDR4_2933Y_1R_Rowhit.trace -p MemorySystem.DRAM.org.rank=1 -p MemorySystem.Controller.RowPolicy.impl=OpenRowPolicy
+
 
 
 
@@ -28,6 +30,11 @@
 
 ./ramulator2 -f DDR4.yaml -p Frontend.path=traces/DDR4_2933Y_2R_Rowhit.trace -p MemorySystem.Controller.RowPolicy.impl=ClosedWithAutoPrecharge
 ./ramulator2 -f DDR4.yaml -p Frontend.path=traces/DDR4_2933Y_2R_Rowmiss.trace -p MemorySystem.Controller.RowPolicy.impl=ClosedWithAutoPrecharge
+
+
+
+./ramulator2 -f DDR4.yaml -p Frontend.path=traces/DDR4_2933Y_2R_Rowhit.trace -p MemorySystem.Controller.RowPolicy.impl=OpenRowPolicy -p MemorySystem.Controller.read_buffer_size=64
+
 
 
 
