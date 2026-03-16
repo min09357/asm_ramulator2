@@ -15,6 +15,8 @@ class GenericDRAMSystem final : public IMemorySystem, public Implementation {
     IAddrMapper*  m_addr_mapper;
     std::vector<IDRAMController*> m_controllers;
 
+    int num_channels = 1;
+
   public:
     int s_num_read_requests = 0;
     int s_num_write_requests = 0;
@@ -30,7 +32,7 @@ class GenericDRAMSystem final : public IMemorySystem, public Implementation {
       m_dram = create_child_ifce<IDRAM>();
       m_addr_mapper = create_child_ifce<IAddrMapper>();
 
-      int num_channels = m_dram->get_level_size("channel");   
+      num_channels = m_dram->get_level_size("channel");   
 
       // Create memory controllers
       for (int i = 0; i < num_channels; i++) {
@@ -103,7 +105,7 @@ class GenericDRAMSystem final : public IMemorySystem, public Implementation {
 
       // Peak theoretical bandwidth: DDR = 2 transfers/clock
       float data_rate_MTps      = 2.0f * 1e6f / tCK_ps;
-      s_theoretical_bandwidth = data_rate_MTps * (channel_width / 8.0f) / 1000.0f;
+      s_theoretical_bandwidth = data_rate_MTps * num_channels * (channel_width / 8.0f) / 1000.0f;
 
       // Measured bandwidth: bytes/ns == GB/s
       double total_bytes        = (double)(s_num_read_requests + s_num_write_requests)
