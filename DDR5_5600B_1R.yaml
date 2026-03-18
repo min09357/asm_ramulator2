@@ -1,0 +1,43 @@
+Frontend:
+  impl: ReadWriteTraceO3
+  path: ./traces/DDR5_5600B_1R_Rowhit.trace
+  clock_ratio: 1
+  issue_window_size: 256
+
+MemorySystem:
+  impl: GenericDRAM
+  clock_ratio: 1
+
+  DRAM:
+    impl: DDR5
+    org:
+      preset: DDR5_16Gb_x8
+      channel: 2
+      rank: 1
+    timing:
+      preset: DDR5_5600B
+      # nRAS: 
+      # nRP: 
+      # nRC: 
+      # nCS: 
+    RFM:
+      # BRC: 2
+
+  Controller:
+    # impl: Generic
+    impl: PerRank
+    read_buffer_size: 16
+    write_buffer_size: 16
+    scale_buffer_by_ranks: true
+    max_read_per_rank: 0
+    max_write_per_rank: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: OpenRowPolicy
+    plugins:
+
+  AddrMapper:
+    impl: ChRaBaRoCo

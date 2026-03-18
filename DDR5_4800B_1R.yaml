@@ -1,7 +1,8 @@
 Frontend:
-  impl: ReadWriteTrace
-  path: ./traces/DDR5_4800B_2R_Rowhit.trace
+  impl: ReadWriteTraceO3
+  path: ./traces/DDR5_4800B_1R_Rowhit.trace
   clock_ratio: 1
+  issue_window_size: 256
 
 MemorySystem:
   impl: GenericDRAM
@@ -12,14 +13,24 @@ MemorySystem:
     org:
       preset: DDR5_16Gb_x4
       channel: 2
-      rank: 2
+      rank: 1
     timing:
       preset: DDR5_4800B
+      # nRAS: 
+      # nRP: 
+      # nRC: 
+      # nCS: 
     RFM:
       # BRC: 2
 
   Controller:
-    impl: Generic
+    # impl: Generic
+    impl: PerRank
+    read_buffer_size: 16
+    write_buffer_size: 16
+    scale_buffer_by_ranks: true
+    max_read_per_rank: 0
+    max_write_per_rank: 0
     Scheduler:
       impl: FRFCFS
     RefreshManager:
