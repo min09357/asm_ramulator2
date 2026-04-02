@@ -1,0 +1,54 @@
+Frontend:
+  impl: ReadWriteTrace
+  # impl: ReadWriteTraceO3
+  # path: ./traces/DDR5_5600B_1R_Rowhit.trace
+  # path: ./traces/DDR5_5600B_1R_Rowhit_RandomInterleaving.trace
+  path: ./traces/DDR5_5600B_1R_Rowmiss.trace
+  # path: ./traces/DDR5_5600B_1R_Rowmiss_RandomInterleaving.trace
+  # path: ./traces/DDR5_5600B_1R_Random.trace
+  clock_ratio: 1
+  issue_window_size: 256
+
+MemorySystem:
+  impl: GenericDRAM
+  clock_ratio: 1
+
+  DRAM:
+    impl: DDR5
+    org:
+      preset: DDR5_16Gb_x8
+      channel: 2
+      rank: 1
+    timing:
+      preset: DDR5_5600B
+      # nRAS: 
+      # nRP: 
+      # nRC: 
+      # nCS: 
+    RFM:
+      # BRC: 2
+
+  Controller:
+    impl: Generic
+    # impl: PerRank
+    # active_buffer_size: 32
+    # priority_buffer_size: 4
+    read_buffer_size: 8
+    write_buffer_size: 32
+    scale_buffer_by_ranks: true
+    max_read_per_rank: 0
+    max_write_per_rank: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: OpenRowPolicy
+      # impl: ClosedWithAutoPrecharge
+    plugins:
+      # - ControllerPlugin:
+      #     impl: RFMManager
+      #     rfm_thresh: 80
+
+  AddrMapper:
+    impl: ChRaBaRoCo

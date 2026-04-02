@@ -6,3 +6,4 @@ ramulator2
 autobuild.sh
 
 traces/*.trace
+traces/test_output

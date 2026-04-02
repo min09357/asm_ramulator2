@@ -1,6 +1,8 @@
 Frontend:
-  impl: ReadWriteTraceO3
-  path: ./traces/DDR4_2933Y_2R_Rowhit.trace
+  # impl: ReadWriteTraceO3
+  impl: ReadWriteTrace
+  # path: ./traces/DDR5_5600B_2R_Rowhit.trace
+  path: ./traces/DDR5_5600B_2R_Rowmiss.trace
   clock_ratio: 1
   issue_window_size: 256
 
@@ -9,23 +11,25 @@ MemorySystem:
   clock_ratio: 1
 
   DRAM:
-    impl: DDR4
+    impl: DDR5
     org:
-      preset: DDR4_8Gb_x4
-      channel: 1
+      preset: DDR5_16Gb_x8
+      channel: 2
       rank: 2
     timing:
-      preset: DDR4_2933Y
+      preset: DDR5_5600B
       # nRAS: 
       # nRP: 
       # nRC: 
       # nCS: 
+    RFM:
+      # BRC: 2
 
   Controller:
-    # impl: Generic
-    impl: PerRank
-    read_buffer_size: 16
-    write_buffer_size: 16
+    impl: Generic
+    # impl: PerRank
+    read_buffer_size: 32
+    write_buffer_size: 32
     scale_buffer_by_ranks: true
     max_read_per_rank: 0
     max_write_per_rank: 0
