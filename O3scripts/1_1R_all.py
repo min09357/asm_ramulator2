@@ -23,7 +23,7 @@ SHUFFLE_CORES = "true"
 LLC_PER_CORE = "8MB"
 LLC_ASSOCIATIVITY = 8
 MSHR_PER_CORE = 64
-INST_WINDOW_DEPTH = 256
+INST_WINDOW_DEPTH = 128
 READ_BUFFER_SIZE = 64
 
 ROW_POLICY = "OpenRowPolicy"
@@ -31,8 +31,8 @@ ROW_POLICY = "OpenRowPolicy"
 CONTROLLER = "PerRank"
 REFRESH = "PerRank"
 
-CONTROLLER = "Generic"
-REFRESH = "AllBank"
+# CONTROLLER = "Generic"
+# REFRESH = "AllBank"
 
 # Sweep configurations
 DDR_CONFIGS = [

@@ -84,52 +84,52 @@ BITS_DDR5_2Rx8 = {CH: 1, RA: 1, BG: 3, BA: 2, RO: 16, CO: 6}
 # num_cores and num_bubbles are swept via NUM_CORES_LIST / NUM_BUBBLES_LIST.
 # ============================================================
 configs = [
-    # ("DDR4_2933Y_1Rx4", "Rowhit",  {CH:1, RA:1, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_1Rx4, ROW_HIT),
-    # ("DDR4_2933Y_1Rx4", "Rowmiss", {CH:1, RA:1, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_1Rx4, ROW_MISS),
+    ("DDR4_2933Y_1Rx4", "Rowhit",  {CH:1, RA:1, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_1Rx4, ROW_HIT),
+    ("DDR4_2933Y_1Rx4", "Rowmiss", {CH:1, RA:1, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_1Rx4, ROW_MISS),
     ("DDR4_2933Y_1Rx4", "Random",  {CH:1, RA:1, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_1Rx4, RANDOM),
 
-    # ("DDR4_2933Y_2Rx4", "Rowhit",  {CH:1, RA:2, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_2Rx4, ROW_HIT),
-    # ("DDR4_2933Y_2Rx4", "Rowmiss", {CH:1, RA:2, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_2Rx4, ROW_MISS),
+    ("DDR4_2933Y_2Rx4", "Rowhit",  {CH:1, RA:2, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_2Rx4, ROW_HIT),
+    ("DDR4_2933Y_2Rx4", "Rowmiss", {CH:1, RA:2, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_2Rx4, ROW_MISS),
     ("DDR4_2933Y_2Rx4", "Random",  {CH:1, RA:2, BG:4, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR4_2Rx4, RANDOM),
 
 
-    # ("DDR5_4800B_1Rx4", "Rowhit",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_HIT),
-    # ("DDR5_4800B_1Rx4", "Rowmiss",     {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_MISS),
+    ("DDR5_4800B_1Rx4", "Rowhit",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_HIT),
+    ("DDR5_4800B_1Rx4", "Rowmiss",     {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_MISS),
     ("DDR5_4800B_1Rx4", "Random",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, RANDOM),
-    # ("DDR5_4800B_1Rx4", "Rowmiss_BA2", {CH:2, RA:1, BG:8, BA:2, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_MISS),
-    # ("DDR5_4800B_1Rx4", "Rowmiss_BA1", {CH:2, RA:1, BG:8, BA:1, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_MISS),
+    ("DDR5_4800B_1Rx4", "Rowmiss_BA2", {CH:2, RA:1, BG:8, BA:2, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_MISS),
+    ("DDR5_4800B_1Rx4", "Rowmiss_BA1", {CH:2, RA:1, BG:8, BA:1, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_1Rx4, ROW_MISS),
 
-    # ("DDR5_4800B_2Rx4", "Rowhit",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_HIT),
-    # ("DDR5_4800B_2Rx4", "Rowmiss",     {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_MISS),
+    ("DDR5_4800B_2Rx4", "Rowhit",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_HIT),
+    ("DDR5_4800B_2Rx4", "Rowmiss",     {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_MISS),
     ("DDR5_4800B_2Rx4", "Random",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, RANDOM),
-    # ("DDR5_4800B_2Rx4", "Rowmiss_BA2", {CH:2, RA:2, BG:8, BA:2, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_MISS),
-    # ("DDR5_4800B_2Rx4", "Rowmiss_BA1", {CH:2, RA:2, BG:8, BA:1, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_MISS),
+    ("DDR5_4800B_2Rx4", "Rowmiss_BA2", {CH:2, RA:2, BG:8, BA:2, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_MISS),
+    ("DDR5_4800B_2Rx4", "Rowmiss_BA1", {CH:2, RA:2, BG:8, BA:1, RO:NUM_ROW, CO:1<<7}, BITS_DDR5_2Rx4, ROW_MISS),
 
 
-    # ("DDR5_4800B_1Rx8", "Rowhit",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_HIT),
-    # ("DDR5_4800B_1Rx8", "Rowmiss",     {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
+    ("DDR5_4800B_1Rx8", "Rowhit",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_HIT),
+    ("DDR5_4800B_1Rx8", "Rowmiss",     {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
     ("DDR5_4800B_1Rx8", "Random",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, RANDOM),
-    # ("DDR5_4800B_1Rx8", "Rowmiss_BA2", {CH:2, RA:1, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
-    # ("DDR5_4800B_1Rx8", "Rowmiss_BA1", {CH:2, RA:1, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
+    ("DDR5_4800B_1Rx8", "Rowmiss_BA2", {CH:2, RA:1, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
+    ("DDR5_4800B_1Rx8", "Rowmiss_BA1", {CH:2, RA:1, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
 
-    # ("DDR5_4800B_2Rx8", "Rowhit",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_HIT),
-    # ("DDR5_4800B_2Rx8", "Rowmiss",     {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
+    ("DDR5_4800B_2Rx8", "Rowhit",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_HIT),
+    ("DDR5_4800B_2Rx8", "Rowmiss",     {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
     ("DDR5_4800B_2Rx8", "Random",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, RANDOM),
-    # ("DDR5_4800B_2Rx8", "Rowmiss_BA2", {CH:2, RA:2, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
-    # ("DDR5_4800B_2Rx8", "Rowmiss_BA1", {CH:2, RA:2, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
+    ("DDR5_4800B_2Rx8", "Rowmiss_BA2", {CH:2, RA:2, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
+    ("DDR5_4800B_2Rx8", "Rowmiss_BA1", {CH:2, RA:2, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
 
 
-    # ("DDR5_5600B_1Rx8", "Rowhit",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_HIT),
-    # ("DDR5_5600B_1Rx8", "Rowmiss",     {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
+    ("DDR5_5600B_1Rx8", "Rowhit",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_HIT),
+    ("DDR5_5600B_1Rx8", "Rowmiss",     {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
     ("DDR5_5600B_1Rx8", "Random",      {CH:2, RA:1, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, RANDOM),
-    # ("DDR5_5600B_1Rx8", "Rowmiss_BA2", {CH:2, RA:1, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
-    # ("DDR5_5600B_1Rx8", "Rowmiss_BA1", {CH:2, RA:1, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
+    ("DDR5_5600B_1Rx8", "Rowmiss_BA2", {CH:2, RA:1, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
+    ("DDR5_5600B_1Rx8", "Rowmiss_BA1", {CH:2, RA:1, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_1Rx8, ROW_MISS),
 
-    # ("DDR5_5600B_2Rx8", "Rowhit",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_HIT),
-    # ("DDR5_5600B_2Rx8", "Rowmiss",     {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
+    ("DDR5_5600B_2Rx8", "Rowhit",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_HIT),
+    ("DDR5_5600B_2Rx8", "Rowmiss",     {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
     ("DDR5_5600B_2Rx8", "Random",      {CH:2, RA:2, BG:8, BA:4, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, RANDOM),
-    # ("DDR5_5600B_2Rx8", "Rowmiss_BA2", {CH:2, RA:2, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
-    # ("DDR5_5600B_2Rx8", "Rowmiss_BA1", {CH:2, RA:2, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
+    ("DDR5_5600B_2Rx8", "Rowmiss_BA2", {CH:2, RA:2, BG:8, BA:2, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
+    ("DDR5_5600B_2Rx8", "Rowmiss_BA1", {CH:2, RA:2, BG:8, BA:1, RO:NUM_ROW, CO:1<<6}, BITS_DDR5_2Rx8, ROW_MISS),
 ]
 
 
