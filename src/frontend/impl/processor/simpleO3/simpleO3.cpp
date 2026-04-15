@@ -6,6 +6,8 @@
 #include "frontend/impl/processor/simpleO3/core.h"
 #include "frontend/impl/processor/simpleO3/llc.h"
 
+#include <random>
+
 
 namespace Ramulator {
 
@@ -22,6 +24,14 @@ class SimpleO3 final : public IFrontEnd, public Implementation {
     size_t m_num_expected_insts = 0;
 
     std::string serialization_filename;
+
+
+    bool shuffle_cores = false;
+
+    std::mt19937 gen;
+    std::vector<int> order;
+
+    float s_llc_hit_rate = 0.0f;
 
 
   public:
@@ -44,6 +54,16 @@ class SimpleO3 final : public IFrontEnd, public Implementation {
 
       // Simulation parameters
       m_num_expected_insts = param<int>("num_expected_insts").desc("Number of instructions that the frontend should execute.").required();
+
+      // starting core parameter
+      shuffle_cores = param<bool>("shuffle_cores").desc("Whether to change the order of core execution.").default_val(false);
+      gen.seed(12345);
+
+      order.resize(m_num_cores);
+      for (int i = 0; i < m_num_cores; i++) {
+        order[i] = i;
+      }
+
 
       // Create address translation module
       m_translation = create_child_ifce<ITranslation>();
@@ -70,6 +90,7 @@ class SimpleO3 final : public IFrontEnd, public Implementation {
       register_stat(m_llc->s_llc_read_misses).name("llc_read_misses");
       register_stat(m_llc->s_llc_write_misses).name("llc_write_misses");
       register_stat(m_llc->s_llc_mshr_unavailable).name("llc_mshr_unavailable");
+      register_stat(s_llc_hit_rate).name("llc_hit_rate (%)");
       
       for (int core_id = 0; core_id < m_cores.size(); core_id++) {
         // register_stat(m_cores[core_id]->s_insts_retired).name("cycles_retired_core_{}", core_id);
@@ -83,11 +104,19 @@ class SimpleO3 final : public IFrontEnd, public Implementation {
 
       if(m_clk % 10000000 == 0) {
         m_logger->info("Processor Heartbeat {} cycles.", m_clk);
+        for (int i=0; i<m_cores.size(); i++) {
+          m_logger->info("Core{}: {} / {}", i, m_cores[i]->s_insts_retired, m_num_expected_insts);
+        }
+      }
+
+      if(shuffle_cores && m_clk % 100 == 0) {
+        std::shuffle(order.begin(), order.end(), gen);
       }
 
       m_llc->tick();
-      for (auto core : m_cores) {
-        core->tick();
+      for (int i = 0; i < m_num_cores; i++) {
+        int core_id = order[i];
+        m_cores[core_id]->tick();
       }
     }
 
@@ -119,6 +148,15 @@ class SimpleO3 final : public IFrontEnd, public Implementation {
     int get_num_cores() override {
       return m_num_cores;
     };
+
+    void finalize() override {
+      size_t total_access = (size_t)m_llc->s_llc_read_access + (size_t)m_llc->s_llc_write_access;
+      size_t total_miss   = (size_t)m_llc->s_llc_read_misses + (size_t)m_llc->s_llc_write_misses;
+      s_llc_hit_rate = (total_access > 0)
+          ? ((float)(total_access - total_miss) / (float)total_access) * 100.0f
+          : 0.0f;
+      IFrontEnd::finalize();
+    }
 };
 
 }        // namespace Ramulator

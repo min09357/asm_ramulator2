@@ -1,0 +1,1100 @@
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=77 -p MemorySystem.DRAM.timing.nRP=39 -p MemorySystem.DRAM.timing.nRC=116 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 50.6628799
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 19.4857235
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 4139425
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 592.246155
+    read_queue_len_avg_0: 35.0390129
+    write_queue_len_0: 0
+    queue_len_0: 145090862
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 155253781
+    priority_queue_len_avg_0: 0.0119572161
+    row_hits_0: 0
+    priority_queue_len_0: 49496
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 35.050972
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 145041366
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 35.0390053
+    priority_queue_len_1: 49058
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 592.246155
+    queue_len_avg_1: 35.0508537
+    read_queue_len_1: 145041333
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0118514048
+    read_row_hits_1: 0
+    queue_len_1: 145090391
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 155253781
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=77 -p MemorySystem.DRAM.timing.nRP=59 -p MemorySystem.DRAM.timing.nRC=136 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 43.1713181
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 16.6043549
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 4857743
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 679.926819
+    read_queue_len_avg_0: 34.5896416
+    write_queue_len_0: 0
+    queue_len_0: 168077624
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 178238732
+    priority_queue_len_avg_0: 0.0103004621
+    row_hits_0: 0
+    priority_queue_len_0: 50037
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 34.5999451
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 168027587
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 34.5896339
+    priority_queue_len_1: 50028
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 679.926819
+    queue_len_avg_1: 34.5999336
+    read_queue_len_1: 168027555
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0102986097
+    read_row_hits_1: 0
+    queue_len_1: 168077583
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 178238732
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=77 -p MemorySystem.DRAM.timing.nRP=79 -p MemorySystem.DRAM.timing.nRC=156 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 37.6693649
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 14.4882183
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 5567261
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 766.533081
+    read_queue_len_avg_0: 34.259613
+    write_queue_len_0: 0
+    queue_len_0: 190795246
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 200942051
+    priority_queue_len_avg_0: 0.0113224434
+    row_hits_0: 0
+    priority_queue_len_0: 63035
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 34.2709351
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 190732211
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 34.2219086
+    priority_queue_len_1: 63036
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 765.732483
+    queue_len_avg_1: 34.2332306
+    read_queue_len_1: 190522299
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0113226231
+    read_row_hits_1: 0
+    queue_len_1: 190585335
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 200732171
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=77 -p MemorySystem.DRAM.timing.nRP=99 -p MemorySystem.DRAM.timing.nRC=176 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 33.1189384
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 12.7380543
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 6332183
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 859.898499
+    read_queue_len_avg_0: 33.9866371
+    write_queue_len_0: 0
+    queue_len_0: 215325726
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 225417237
+    priority_queue_len_avg_0: 0.0183355417
+    row_hits_0: 0
+    priority_queue_len_0: 116104
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 34.0049744
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 215209622
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 33.9866333
+    priority_queue_len_1: 116101
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 859.898499
+    queue_len_avg_1: 34.0049706
+    read_queue_len_1: 215209589
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0183350667
+    read_row_hits_1: 0
+    queue_len_1: 215325690
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 225417237
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=77 -p MemorySystem.DRAM.timing.nRP=119 -p MemorySystem.DRAM.timing.nRC=196 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 29.6960602
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 11.4215622
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 7062054
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 948.986694
+    read_queue_len_avg_0: 33.781311
+    write_queue_len_0: 0
+    queue_len_0: 238709940
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 248771166
+    priority_queue_len_avg_0: 0.0204590615
+    row_hits_0: 0
+    priority_queue_len_0: 144483
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 33.8017731
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 238565457
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 33.7813034
+    priority_queue_len_1: 144478
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 948.985352
+    queue_len_avg_1: 33.8017616
+    read_queue_len_1: 238565393
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0204583537
+    read_row_hits_1: 0
+    queue_len_1: 238709871
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 248770823
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=90 -p MemorySystem.DRAM.timing.nRP=126 -p MemorySystem.DRAM.timing.nRC=216 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 27.1759186
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 10.4522762
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 7716950
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 1020.28241
+    read_queue_len_avg_0: 33.3365517
+    write_queue_len_0: 0
+    queue_len_0: 257372600
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 267460917
+    priority_queue_len_avg_0: 0.0150445448
+    row_hits_0: 0
+    priority_queue_len_0: 116098
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 33.3515968
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 257256502
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 24.7874622
+    priority_queue_len_1: 115989
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262118
+    avg_read_latency_1: 768.654297
+    queue_len_avg_1: 24.8024902
+    read_queue_len_1: 191283593
+    read_row_misses_1: 262118
+    priority_queue_len_avg_1: 0.0150304204
+    read_row_hits_1: 0
+    queue_len_1: 191399582
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 201498107
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=110 -p MemorySystem.DRAM.timing.nRP=126 -p MemorySystem.DRAM.timing.nRC=236 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 24.789114
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 9.53427505
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 8459971
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 1047.95935
+    read_queue_len_avg_0: 31.2696419
+    write_queue_len_0: 0
+    queue_len_0: 264689528
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 274716264
+    priority_queue_len_avg_0: 0.0176454503
+    row_hits_0: 0
+    priority_queue_len_0: 149280
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 31.2872868
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 264540248
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 33.4869995
+    priority_queue_len_1: 149302
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 1119.51758
+    queue_len_avg_1: 33.5046463
+    read_queue_len_1: 283299043
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0176480506
+    read_row_hits_1: 0
+    queue_len_1: 283448345
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 293474824
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=130 -p MemorySystem.DRAM.timing.nRP=126 -p MemorySystem.DRAM.timing.nRC=256 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 22.9248104
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 8.81723499
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 9147957
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 1196.92993
+    read_queue_len_avg_0: 33.1839752
+    write_queue_len_0: 0
+    queue_len_0: 303721346
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 313768002
+    priority_queue_len_avg_0: 0.0170282833
+    row_hits_0: 0
+    priority_queue_len_0: 155774
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 33.201004
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 303565572
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 33.375164
+    priority_queue_len_1: 155802
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 1203.60193
+    queue_len_avg_1: 33.3921928
+    read_queue_len_1: 305314547
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0170313437
+    read_row_hits_1: 0
+    queue_len_1: 305470349
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 315517009
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=150 -p MemorySystem.DRAM.timing.nRP=126 -p MemorySystem.DRAM.timing.nRC=276 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 21.2574196
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 8.17593098
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 9865505
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 1291.17908
+    read_queue_len_avg_0: 33.2751198
+    write_queue_len_0: 0
+    queue_len_0: 328452424
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 338474855
+    priority_queue_len_avg_0: 0.0178971067
+    row_hits_0: 0
+    priority_queue_len_0: 176564
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 33.2930145
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 328275860
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 33.275116
+    priority_queue_len_1: 176611
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 1291.17908
+    queue_len_avg_1: 33.2930183
+    read_queue_len_1: 328275825
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0179018714
+    read_row_hits_1: 0
+    queue_len_1: 328452436
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 338474855
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=170 -p MemorySystem.DRAM.timing.nRP=126 -p MemorySystem.DRAM.timing.nRC=296 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 19.840147
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 7.630826
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 10570244
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 1377.20471
+    read_queue_len_avg_0: 33.1901169
+    write_queue_len_0: 0
+    queue_len_0: 351154555
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 361025964
+    priority_queue_len_avg_0: 0.0309298448
+    row_hits_0: 0
+    priority_queue_len_0: 326936
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 33.2210464
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 350827619
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 33.1901131
+    priority_queue_len_1: 325914
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 1377.20471
+    queue_len_avg_1: 33.2209473
+    read_queue_len_1: 350827587
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0308331568
+    read_row_hits_1: 0
+    queue_len_1: 351153501
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 361025964
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+--------------------------------------------------------
+./ramulator2 -f ./yaml/DDR5_4800B_1Rx8.yaml -p MemorySystem.DRAM.timing.nRAS=190 -p MemorySystem.DRAM.timing.nRP=126 -p MemorySystem.DRAM.timing.nRC=316 -p Frontend.path=./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace
+--------------------------------------------------------
+[Ramulator::ReadWriteTraceO3] [info] Loading trace file ./traces/DDR5_4800B_1Rx8_Rowmiss_quarter.trace ...
+[Ramulator::ReadWriteTraceO3] [info] Loaded 524288 lines. Issue window size: 1
+Frontend:
+  impl: ReadWriteTraceO3
+
+MemorySystem:
+  impl: GenericDRAM
+  bandwidth_utilization (%): 18.5763359
+  theoretical_bandwidth (GBs): 38.4615402
+  total_num_other_requests: 0
+  measured_bandwidth (GBs): 7.14474487
+  total_num_write_requests: 0
+  total_num_read_requests: 524288
+  memory_system_cycles: 11289373
+
+  DRAM:
+    impl: DDR5
+    total_rfm_cycles_rank1: 0
+    total_rfm_cycles_rank0: 0
+  AddrMapper:
+    impl: ChRaBaRoCo
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 0
+    avg_read_latency_0: 1464.98157
+    read_queue_len_avg_0: 33.1143036
+    write_queue_len_0: 0
+    queue_len_0: 374060657
+    num_other_reqs_0: 0
+    num_write_reqs_0: 0
+    read_latency_0: 384036117
+    priority_queue_len_avg_0: 0.0195719469
+    row_hits_0: 0
+    priority_queue_len_0: 220955
+    row_misses_0: 262112
+    row_conflicts_0: 0
+    read_row_misses_0: 262112
+    queue_len_avg_0: 33.133873
+    read_row_conflicts_core_0: 0
+    read_row_hits_0: 0
+    write_queue_len_avg_0: 0
+    read_row_conflicts_0: 0
+    write_row_misses_0: 0
+    write_row_conflicts_0: 0
+    read_queue_len_0: 373839702
+    write_row_hits_0: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    num_read_reqs_0: 262144
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+
+  Controller:
+    impl: PerRank
+    id: Channel 1
+    read_queue_len_avg_1: 33.1142998
+    priority_queue_len_1: 222162
+    write_queue_len_1: 0
+    num_write_reqs_1: 0
+    row_hits_1: 0
+    row_misses_1: 262112
+    avg_read_latency_1: 1464.98157
+    queue_len_avg_1: 33.133976
+    read_queue_len_1: 373839669
+    read_row_misses_1: 262112
+    priority_queue_len_avg_1: 0.0196788609
+    read_row_hits_1: 0
+    queue_len_1: 374061831
+    read_row_conflicts_1: 0
+    num_read_reqs_1: 262144
+    num_other_reqs_1: 0
+    row_conflicts_1: 0
+    write_row_hits_1: 0
+    write_queue_len_avg_1: 0
+    write_row_misses_1: 0
+    write_row_conflicts_1: 0
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_latency_1: 384036117
+    read_row_conflicts_core_0: 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+    RowPolicy:
+      impl: ClosedWithAutoPrecharge
+
+
+

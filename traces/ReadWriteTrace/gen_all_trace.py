@@ -38,19 +38,55 @@ TRACE_CONFIGS = [
     ("DDR4_2933Y_2R_Rowmiss_RandomInterleaving.trace", {CH: 1, RA: 2, BG: 4, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random_interleaving"),
     ("DDR4_2933Y_2R_Random.trace",                     {CH: 1, RA: 2, BG: 4, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random"),
 
-    # DDR5_4800B_1R
-    ("DDR5_4800B_1R_Rowhit.trace",                     {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "sequential"),
-    ("DDR5_4800B_1R_Rowmiss.trace",                    {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
-    ("DDR5_4800B_1R_Rowhit_RandomInterleaving.trace",  {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "random_interleaving"),
-    ("DDR5_4800B_1R_Rowmiss_RandomInterleaving.trace", {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random_interleaving"),
-    ("DDR5_4800B_1R_Random.trace",                     {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random"),
+    # DDR5_4800B_1Rx4
+    ("DDR5_4800B_1Rx4_Rowhit.trace",                     {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "sequential"),
+    ("DDR5_4800B_1Rx4_Rowmiss.trace",                    {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_1Rx4_Rowhit_RandomInterleaving.trace",  {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "random_interleaving"),
+    ("DDR5_4800B_1Rx4_Rowmiss_RandomInterleaving.trace", {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random_interleaving"),
+    ("DDR5_4800B_1Rx4_Random.trace",                     {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random"),
 
-    # DDR5_4800B_2R
-    ("DDR5_4800B_2R_Rowhit.trace",                     {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "sequential"),
-    ("DDR5_4800B_2R_Rowmiss.trace",                    {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
-    ("DDR5_4800B_2R_Rowhit_RandomInterleaving.trace",  {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "random_interleaving"),
-    ("DDR5_4800B_2R_Rowmiss_RandomInterleaving.trace", {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random_interleaving"),
-    ("DDR5_4800B_2R_Random.trace",                     {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random"),
+    # DDR5_4800B_1Rx4 variants
+    ("DDR5_4800B_1Rx4_Rowmiss_half.trace",                    {CH: 2, RA: 1, BG: 8, BA: 2, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_1Rx4_Rowmiss_quarter.trace",                 {CH: 2, RA: 1, BG: 8, BA: 1, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
+    
+    # DDR5_4800B_2Rx4
+    ("DDR5_4800B_2Rx4_Rowhit.trace",                     {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "sequential"),
+    ("DDR5_4800B_2Rx4_Rowmiss.trace",                    {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_2Rx4_Rowhit_RandomInterleaving.trace",  {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_HIT,  "random_interleaving"),
+    ("DDR5_4800B_2Rx4_Rowmiss_RandomInterleaving.trace", {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random_interleaving"),
+    ("DDR5_4800B_2Rx4_Random.trace",                     {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "random"),
+
+    # DDR5_4800B_2Rx4 variants
+    ("DDR5_4800B_2Rx4_Rowmiss_half.trace",                    {CH: 2, RA: 2, BG: 8, BA: 2, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_2Rx4_Rowmiss_quarter.trace",                 {CH: 2, RA: 2, BG: 8, BA: 1, RO: 1 << 9, CO: 1 << 7}, ROW_MISS, "sequential"),
+
+
+
+
+    # DDR5_4800B_1Rx8
+    ("DDR5_4800B_1Rx8_Rowhit.trace",                     {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_HIT,  "sequential"),
+    ("DDR5_4800B_1Rx8_Rowmiss.trace",                    {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_1Rx8_Rowhit_RandomInterleaving.trace",  {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_HIT,  "random_interleaving"),
+    ("DDR5_4800B_1Rx8_Rowmiss_RandomInterleaving.trace", {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "random_interleaving"),
+    ("DDR5_4800B_1Rx8_Random.trace",                     {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "random"),
+
+    # DDR5_4800B_1Rx8 variants
+    ("DDR5_4800B_1Rx8_Rowmiss_half.trace",                    {CH: 2, RA: 1, BG: 8, BA: 2, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_1Rx8_Rowmiss_quarter.trace",                 {CH: 2, RA: 1, BG: 8, BA: 1, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "sequential"),
+    
+    # DDR5_4800B_2Rx8
+    ("DDR5_4800B_2Rx8_Rowhit.trace",                     {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_HIT,  "sequential"),
+    ("DDR5_4800B_2Rx8_Rowmiss.trace",                    {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_2Rx8_Rowhit_RandomInterleaving.trace",  {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_HIT,  "random_interleaving"),
+    ("DDR5_4800B_2Rx8_Rowmiss_RandomInterleaving.trace", {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "random_interleaving"),
+    ("DDR5_4800B_2Rx8_Random.trace",                     {CH: 2, RA: 2, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "random"),
+
+    # DDR5_4800B_2Rx8 variants
+    ("DDR5_4800B_2Rx8_Rowmiss_half.trace",                    {CH: 2, RA: 2, BG: 8, BA: 2, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "sequential"),
+    ("DDR5_4800B_2Rx8_Rowmiss_quarter.trace",                 {CH: 2, RA: 2, BG: 8, BA: 1, RO: 1 << 9, CO: 1 << 6}, ROW_MISS, "sequential"),
+
+
+
 
     # DDR5_5600B_1R
     ("DDR5_5600B_1R_Rowhit.trace",                     {CH: 2, RA: 1, BG: 8, BA: 4, RO: 1 << 9, CO: 1 << 6}, ROW_HIT,  "sequential"),

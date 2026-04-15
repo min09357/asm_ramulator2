@@ -1,8 +1,8 @@
 Frontend:
   impl: ReadWriteTraceO3
-  path: ./traces/DDR5_4800B_1R_Rowhit.trace
+  path: ./traces/DDR5_4800B_1Rx8_Rowmiss.trace
   clock_ratio: 1
-  issue_window_size: 256
+  issue_window_size: 1
 
 MemorySystem:
   impl: GenericDRAM
@@ -11,7 +11,7 @@ MemorySystem:
   DRAM:
     impl: DDR5
     org:
-      preset: DDR5_16Gb_x4
+      preset: DDR5_16Gb_x8
       channel: 2
       rank: 1
     timing:
@@ -26,8 +26,8 @@ MemorySystem:
   Controller:
     # impl: Generic
     impl: PerRank
-    read_buffer_size: 16
-    write_buffer_size: 16
+    read_buffer_size: 32
+    write_buffer_size: 32
     scale_buffer_by_ranks: true
     max_read_per_rank: 0
     max_write_per_rank: 0
@@ -36,7 +36,8 @@ MemorySystem:
     RefreshManager:
       impl: AllBank
     RowPolicy:
-      impl: OpenRowPolicy
+      # impl: OpenRowPolicy
+      impl: ClosedWithAutoPrecharge
     plugins:
 
   AddrMapper:

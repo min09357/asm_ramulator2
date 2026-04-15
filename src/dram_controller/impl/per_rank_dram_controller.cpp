@@ -37,6 +37,7 @@ class PerRankDRAMController final : public IDRAMController, public Implementatio
     size_t s_write_row_hits = 0;
     size_t s_write_row_misses = 0;
     size_t s_write_row_conflicts = 0;
+    float s_dram_hit_rate = 0.0f;
 
     size_t m_num_cores = 0;
     std::vector<size_t> s_read_row_hits_per_core;
@@ -134,6 +135,7 @@ class PerRankDRAMController final : public IDRAMController, public Implementatio
       register_stat(s_write_row_hits).name("write_row_hits_{}", m_channel_id);
       register_stat(s_write_row_misses).name("write_row_misses_{}", m_channel_id);
       register_stat(s_write_row_conflicts).name("write_row_conflicts_{}", m_channel_id);
+      register_stat(s_dram_hit_rate).name("dram_hit_rate_{} (%)", m_channel_id);
 
       for (size_t core_id = 0; core_id < m_num_cores; core_id++) {
         register_stat(s_read_row_hits_per_core[core_id]).name("read_row_hits_core_{}", core_id);
@@ -492,6 +494,11 @@ class PerRankDRAMController final : public IDRAMController, public Implementatio
       s_read_queue_len_avg = (float) s_read_queue_len / (float) m_clk;
       s_write_queue_len_avg = (float) s_write_queue_len / (float) m_clk;
       s_priority_queue_len_avg = (float) s_priority_queue_len / (float) m_clk;
+
+      size_t total_row_access = s_row_hits + s_row_misses + s_row_conflicts;
+      s_dram_hit_rate = (total_row_access > 0)
+          ? ((float)s_row_hits / (float)total_row_access) * 100.0f
+          : 0.0f;
 
       return;
     }

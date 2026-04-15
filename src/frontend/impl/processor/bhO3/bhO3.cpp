@@ -82,6 +82,7 @@ void BHO3::init() {
   register_stat(m_llc->s_llc_write_misses).name("llc_write_misses");
   register_stat(m_llc->s_llc_mshr_unavailable).name("llc_mshr_unavailable");
   register_stat(m_llc->s_llc_mshr_blacklisted).name("llc_mshr_blacklisted");
+  register_stat(s_llc_hit_rate).name("llc_hit_rate (%)");
   
   for (int core_id = 0; core_id < m_cores.size(); core_id++) {
     register_stat(m_cores[core_id]->s_cycles_recorded).name("cycles_recorded_core_{}", core_id);
@@ -143,6 +144,15 @@ BHO3LLC* BHO3::get_llc() {
 
 std::vector<BHO3Core*>& BHO3::get_cores() {
   return m_cores;
+}
+
+void BHO3::finalize() {
+  size_t total_access = (size_t)m_llc->s_llc_read_access + (size_t)m_llc->s_llc_write_access;
+  size_t total_miss   = (size_t)m_llc->s_llc_read_misses + (size_t)m_llc->s_llc_write_misses;
+  s_llc_hit_rate = (total_access > 0)
+      ? ((float)(total_access - total_miss) / (float)total_access) * 100.0f
+      : 0.0f;
+  IFrontEnd::finalize();
 }
 
 }        // namespace Ramulator

@@ -1,9 +1,11 @@
 build/
 .vscode
+.claude
 ext/
 ramulator2
 *.so
 autobuild.sh
 
-traces/*.trace
-traces/test_output
+traces/**
+!traces/**/
+!traces/**/*.py

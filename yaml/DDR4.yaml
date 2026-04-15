@@ -1,7 +1,20 @@
 Frontend:
-  impl: ReadWriteTrace
-  path: ./traces/DDR4_2933Y_2R_Rowhit.trace
+  impl: SimpleO3
   clock_ratio: 1
+  num_expected_insts: 500000
+  # llc_capacity_per_core: 2MB
+  llc_capacity_per_core: 8MB
+  # llc_num_mshr_per_core: 16
+  llc_num_mshr_per_core: 32
+  # inst_window_depth: 128
+  inst_window_depth: 128
+  llc_associativityy: 8
+  traces: 
+    - example_inst.trace
+
+  Translation:
+    impl: NoTranslation
+    max_addr: 34359738368
 
 MemorySystem:
   impl: GenericDRAM
@@ -17,14 +30,26 @@ MemorySystem:
       preset: DDR4_2933Y
 
   Controller:
-    impl: Generic
+    # impl: Generic
+    impl: PerRank
+    read_buffer_size: 128
+    write_buffer_size: 32
+    # scale_buffer_by_ranks: true
+    scale_buffer_by_ranks: false
+    max_read_per_rank: 0
+    max_write_per_rank: 0
     Scheduler:
       impl: FRFCFS
     RefreshManager:
-      impl: AllBank
+      # impl: AllBank
+      impl: PerRank
     RowPolicy:
+      # impl: ClosedWithAutoPrecharge
       impl: OpenRowPolicy
+      # impl: ClosedRowPolicy
+      cap: 1
     plugins:
 
   AddrMapper:
-    impl: ChRaBaRoCo
+    # impl: ChRaBaRoCo
+    impl: RoBaRaCoCh

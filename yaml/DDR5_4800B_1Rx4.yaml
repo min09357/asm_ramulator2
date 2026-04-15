@@ -1,20 +1,8 @@
 Frontend:
-  impl: SimpleO3
+  impl: ReadWriteTraceO3
+  path: ./traces/DDR5_4800B_1Rx4_Rowmiss.trace
   clock_ratio: 1
-  num_expected_insts: 500000
-  # llc_capacity_per_core: 2MB
-  llc_capacity_per_core: 4MB
-  # llc_num_mshr_per_core: 16
-  llc_num_mshr_per_core: 4
-  # inst_window_depth: 128
-  inst_window_depth: 128
-  llc_associativityy: 8
-  traces: 
-    - example_inst.trace
-
-  Translation:
-    impl: NoTranslation
-    max_addr: 34359738368
+  issue_window_size: 1
 
 MemorySystem:
   impl: GenericDRAM
@@ -25,9 +13,13 @@ MemorySystem:
     org:
       preset: DDR5_16Gb_x4
       channel: 2
-      rank: 2
+      rank: 1
     timing:
       preset: DDR5_4800B
+      # nRAS: 
+      # nRP: 
+      # nRC: 
+      # nCS: 
     RFM:
       # BRC: 2
 
@@ -42,15 +34,11 @@ MemorySystem:
     Scheduler:
       impl: FRFCFS
     RefreshManager:
-      # impl: AllBank
-      impl: PerRank
+      impl: AllBank
     RowPolicy:
-      # impl: ClosedWithAutoPrecharge
       # impl: OpenRowPolicy
-      impl: ClosedRowPolicy
-      cap: 1
+      impl: ClosedWithAutoPrecharge
     plugins:
 
   AddrMapper:
-    # impl: ChRaBaRoCo
-    impl: RoBaRaCoCh
+    impl: ChRaBaRoCo

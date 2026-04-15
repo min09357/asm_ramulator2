@@ -28,6 +28,8 @@ class BHO3 final : public IFrontEnd, public Implementation {
     bool llc_deserialize = false;
     std::string llc_deserialization_filename;
 
+    float s_llc_hit_rate = 0.0f;
+
   public:
     void init() override;
     void tick() override;
@@ -37,6 +39,7 @@ class BHO3 final : public IFrontEnd, public Implementation {
     int get_num_cores() override;
     BHO3LLC* get_llc();
     std::vector<BHO3Core*>& get_cores();
+    void finalize() override;
 };
 
 }        // namespace Ramulator

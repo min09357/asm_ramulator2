@@ -1,0 +1,15 @@
+
+
+
+
+./1_1R_all.sh 2>&1 | tee 1_1R_all.txt
+
+./2_1R_half.sh 2>&1 | tee 2_1R_half.txt
+
+./3_1R_quarter.sh 2>&1 | tee 3_1R_quarter.txt
+
+./4_2R_all.sh 2>&1 | tee 4_2R_all.txt
+
+./5_2R_half.sh 2>&1 | tee 5_2R_half.txt
+
+./6_2R_quarter.sh 2>&1 | tee 6_2R_quarter.txt

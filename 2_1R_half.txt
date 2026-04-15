@@ -1,0 +1,1 @@
+bash: ./2_1R_half.sh: No such file or directory
